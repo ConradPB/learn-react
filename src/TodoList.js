@@ -1,11 +1,10 @@
 import React from 'react'
+import Todo from './Todo'
 
 export default function TodoList({ todos }) {
     return (
-        // the curly brackets say that this is js code
-
-        <div>
-            {todos.length}
-        </div>
+       todos.map(todo => {
+        return <Todo key={todo} todo={todo} />
+       })
     )
 }

@@ -4,7 +4,8 @@ import TodoList from './TodoList'
 
 function App() {
   // for todos, the default state will be an empty array. then use obj destructuring
-  const [todos, setTodos] = useState(['Todo 1', 'Todo 2', 'Todo 3', 'Todo 4'])
+  const [todos, setTodos] = useState([{ id: 1, name: 'Todo 1', complete: true }])
+
   // you can't put 2 html or jsx elements next to eachother in a return. 
   // The return can only return one thing. Any Js function returns only one thing.
   // Wrap it inside an empty element(fragment) that allows us to return one thing
