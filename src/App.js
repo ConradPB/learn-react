@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import TodoList from './TodoList'
 
 
 function App() {
   // for todos, the default state will be an empty array. then use obj destructuring
-  const [todos, setTodos] = useState([{ id: 1, name: 'Todo 1', complete: true }])
+  const [todos, setTodos] = useState([])
+  const todoNameRef = useRef()
+
+  function handleAddTodo(e) {
+    const name = todoNameRef.current.value
+    if (name === '') return
+    console.log(name)
+    setTodos(prevTodos => {
+      return [...prevTodos, { id: 1, name: name, complete: false }]
+    })
+
+    //clears out input when u add something
+    todoNameRef.current.value = null
+  }
 
   // you can't put 2 html or jsx elements next to eachother in a return. 
   // The return can only return one thing. Any Js function returns only one thing.
@@ -13,8 +26,8 @@ function App() {
     
    <>
     <TodoList todos={todos} />
-    <input type = 'text' />
-    <button>Add Todo</button>
+    <input type = 'text' ref={todoNameRef} />
+    <button onClick={handleAddTodo}>Add Todo</button>
     <button>Clear Completed</button>
     <div>0 left to do</div>
     </>
