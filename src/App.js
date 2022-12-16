@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react'
 import TodoList from './TodoList'
 
+//The uuid library allows us to create completely ramdom
+import uuid from 'uuid'
+
 
 function App() {
   // for todos, the default state will be an empty array. then use obj destructuring
